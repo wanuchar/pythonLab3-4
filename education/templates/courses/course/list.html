@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}
+    {% if subject %}
+        {{ subject.title }}
+    {% else %}
+        Все курсы
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="album py-5 text-center">
+    <h1>
+        {% if subject %}
+            <strong class="head-clr-grey text-center">{{ subject.title }}</strong>
+        {% else %}
+            <strong class="head-clr-grey text-center">Все курсы</strong>
+        {% endif %}
+    </h1>
+    <hr>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+          {% for course in courses %}
+          <div class="col">
+          <div class="card shadow-sm">
+              <img src="{{ course.get_image }}"
+                   alt=""
+                   width="100%"
+                   height="225"
+                   class="img-rounded">
+            <div class="card-body">
+              <p class="card-text">
+                  <strong class="text-center">{{ course.title }}</strong>
+              </p>
+              <div class="text-center justify-content-between align-items-center"> {# d-flex #}
+                <div class="text-center">
+                  <a href="{% url "course_detail" course.slug %}">
+                      <button type="button" class="btn btn-sm btn-primary text-center">Подробнее >></button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{#{% block content %}#}
+{#    <h1>#}
+{#        {% if subject %}#}
+{#            {{ subject.title }}#}
+{#        {% else %} Все курсы#}
+{#        {% endif %}#}
+{#    </h1>#}
+{#    <div class="contents">#}
+{#        <h3>Предметы</h3>#}
+{#        <ul id="modules">#}
+{#            <li {% if not subject %} class="selected"{% endif %}>#}
+{#                <a href="{% url "course_list" %}">Все</a>#}
+{#            </li>#}
+{#            {% for s in subjects %}#}
+{#            <li {% if subject == s %}class="selected"{% endif %}>#}
+{#                <a href="{% url "course_list_subject" s.slug %}">#}
+{#                    {{ s.title }}#}
+{#                    <br><span>{{ s.total_courses }} курсы</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    </div>#}
+{#    <div class="module">#}
+{#        {% for course in courses %}#}
+{#            {% with subject=course.subject %}#}
+{#                <h3>#}
+{#                    <a href="{% url "course_detail" course.slug %}">{{ course.title }}</a>#}
+{#                </h3>#}
+{#                <p>#}
+{#                    <a href="{% url "course_list_subject" subject.slug %}">{{ subject }}</a>.#}
+{#                    {{ course.total_modules }} модулей. Преподаватели: {{ course.owner }}#}
+{#                </p>#}
+{#            {% endwith %}#}
+{#        {% endfor %}#}
+{#    </div>#}
+{#{% endblock %}#}

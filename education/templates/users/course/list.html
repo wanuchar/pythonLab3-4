@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Мои курсы{% endblock %}
+{% block content %}
+{#    <aside>#}
+{#    <div class="container bg-dark rounded">#}
+{#    <div class="p-1">#}
+{#        <img src="{{ request.user.get_image }}"#}
+{#             alt=""#}
+{#             class="bd-placeholder-img rounded-circle"#}
+{#             width="140"#}
+{#             height="140">#}
+{##}
+{#        <h2>{{ request.user.username }}</h2>#}
+{#        <hr>#}
+{#        <h5>Возраст: {{ request.user.age }}</h5>#}
+{#        <p>#}
+{#            <a class="btn btn-secondary" href=""></a>#}
+{#        </p>#}
+{#    </div>#}
+{#        </div>#}
+{#    </aside>#}
+    <div class="container p-5">
+         {% for course in object_list %}
+             <hr><hr>
+             <div class="container rounded p-5 mx-20 bg-dark text-center">
+          <img src="{{ course.get_thumbnail }}"
+               alt=""
+               width="140"
+               height="140"
+               class="bd-placeholder-img rounded-circle">
+        <h2>{{ course.title }}</h2>
+        <p class="lead">{{ course.overview }}</p>
+        <p><a class="btn btn-primary" href="{% url 'user_course_detail' course.id %}">Начать »</a></p>
+        </div>
+         {% empty %}
+             <div class="container rounded p-5 mx-20 bg-dark text-center">
+                <p class="fs-4">Тут пусто:( <a href="{% url 'course_list' %}"> Нажми, чтобы выбрать.</a></p>
+             </div>
+         {% endfor %}
+    </div>
+{% endblock %}

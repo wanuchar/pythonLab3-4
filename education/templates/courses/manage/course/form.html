@@ -1,0 +1,66 @@
+{% extends "../../../base.html" %}
+
+{% block title %}
+{% if object %}
+    Редактировать курс "{{ object.title }}"
+{% else %}
+    Создать новый курс
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    <main class="container m-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-6 bg-dark p-3 rounded">
+                        <h1>
+                            {% if object %}
+                                Редактировать курс
+                            {% else %}
+                                Создать новый курс
+                            {% endif %}
+                        </h1> <hr>
+                <form action="" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <p><input type="submit" class="btn btn-lg btn-primary" value="Сохранить"></p>
+                </form>
+{#                <form action="" method="post">#}
+{#                    {% csrf_token %}#}
+{#                        <h1>#}
+{#                            {% if object %}#}
+{#                                Редактировать курс#}
+{#                            {% else %}#}
+{#                                Создать новый курс#}
+{#                            {% endif %}#}
+{#                        </h1>#}
+{#                        <div class="mb-3">#}
+{#                          <label for="disabledSelect" class="form-label">Предмет</label>#}
+{#                          <select id="disabledSelect" class="form-select">#}
+{#                            <option>{{ object.subject }}</option>#}
+{#                          </select>#}
+{#                        </div>#}
+{#                        <div class="mb-3">#}
+{#                          <label for="disabledTextInput" class="form-label">Название</label>#}
+{#                          <input name="title" type="text" id="disabledTextInput" class="form-control" value="{{ object.title }}" placeholder="{{ object.title }}">#}
+{#                        </div>#}
+{#                        <div class="mb-3">#}
+{#                          <label for="disabledTextInput" class="form-label">Slug</label>#}
+{#                          <input name="slug" type="text" id="disabledTextInput" class="form-control" placeholder="{{ object.slug }}">#}
+{#                        </div>#}
+{#                        <div class="mb-3">#}
+{#                            <label for="exampleFormControlTextarea1" class="form-label">Описание</label>#}
+{#                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>#}
+{#                        </div>#}
+{#                        <button type="submit" class="btn btn-primary">Сохранить</button>#}
+{#                </form>#}
+            </div>
+        </div>
+    </main>
+{#<div class="module">#}
+{#    <h2>Информация о курсе</h2>#}
+{#    <form action="" method="post">#}
+{#        {{ form.as_p }}#}
+{#        {% csrf_token %}#}
+{#        <p><input type="submit" value="Save course"></p>#}
+{#    </form> </div>#}
+{% endblock %}

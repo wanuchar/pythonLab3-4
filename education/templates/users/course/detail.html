@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} {{ object.title }} {% endblock %}
+{% block content %}
+    <div class="container p-5 m-1">
+      <div class="row">
+        {% if object.modules.count > 0 %}
+            <div class="col-4">
+                <div class="container bg-dark p-5 rounded m-3">
+                    <h3><strong>Модули</strong></h3>
+                    <ul id="modules">
+                        {% for m in object.modules.all %}
+                            <li data-id="{{ m.id }}" {% if m == module %}class="selected" {% endif %}>
+                                <a class="list-group-item list-group-item-action list-group-item-secondary" href="{% url 'user_course_detail_module' object.id m.id %}">
+                                    Модуль <span class="order">{{ m.order|add:1 }}</span><br>{{ m.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+              <div class="col-8">
+                <div class="container bg-dark rounded m-3 p-5 text-center">
+                <h1> <strong> {{ module.title }} </strong></h1>
+                {% for content in module.contents.all %}
+                    {% with item=content.item %}
+                        <h2>{{ item.title }}</h2>
+                        {{ item.render }}
+                    {% endwith %}
+                {% endfor %}
+                </div>
+              </div>
+        {% else %}
+            <div class="justify-content-center col-4 bg-dark p-3 rounded">
+                <p class="fs-4">Модулей еще нет.</p>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

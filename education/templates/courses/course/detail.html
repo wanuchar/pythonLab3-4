@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} {{ object.title }} {% endblock %}
+{% block content %}
+    <div class="container m-10 p-5 text-center">
+    {% with subject=course.subject %}
+        <div class="bg-dark p-5 rounded">
+            <h1 class="text-center"><strong class="head-clr-green">{{ object.title }}</strong></h1>
+            <p>
+                <a href="{% url 'course_list_subject' subject.slug %}">{{ subject.title }}</a>
+                {{ course.modules.count }} модуль(ей). Преподаватель: {{ course.owner }}
+            </p>
+            {{ object.overview|linebreaks }}
+            {% if request.user.is_authenticated %}
+                <form action="{% url 'user_course_registration' %}" method="post">
+                    {{ registration_form }} {% csrf_token %}
+                    <input type="submit" class="btn btn-lg btn-primary" value="Пройти курс!">
+                </form>
+            {% else %}
+                <a href="{% url 'signup' %}" class="btn btn-lg btn-primary">Зарегистрируйтесь, чтобы пройти курс</a>
+            {% endif %}
+        </div>
+    {% endwith %}
+    </div>
+{% endblock %}

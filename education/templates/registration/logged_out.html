@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Выход{% endblock %}
+{% block content %}
+    <div class="container text-center m-5">
+        <div class="row justify-content-center">
+            <div class="col-6 bg-dark p-3 rounded">
+                <div class="fa-2x">
+                    <p>
+                        Ты вышел:(
+                        <a href="{% url 'login' %}">Можешь попробовать зайти еще раз.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

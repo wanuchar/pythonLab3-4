@@ -1,0 +1,129 @@
+body {
+    scroll-behavior: smooth!important;
+    background: #ffffff url("../img/wh.jpg");
+    color: #ffffff;
+    font-family: Georgia, serif;
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-size: 24px;
+    font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+}
+aside {
+    float: right;
+    width: 20%;
+    height: 100vh;
+}
+
+a {
+    text-shadow:
+    1px 1px 1px #303030,
+    -1px 1px 1px #323232;
+    color: #ffffff;
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: transform .9s ease;
+}
+
+a:hover, .logo:hover {
+    text-shadow:
+    -1px -1px 1px #3b3b3b,
+    1px -1px 1px #303030;
+    color: #85ffd4;
+    text-decoration: #85ffd4;
+    margin-top: 20px;
+    transform: scale(1.05);
+}
+
+.login {
+    border: #b5b5b5;
+    max-width: 550px;
+    padding-block: 300px!important;
+    color: #676767;
+    margin: 180px!important;
+    margin-left: 410px!important;
+    background-color: rgba(138, 255, 208, 0.7);
+}
+
+.head-clr-green {
+    color: #85ffd4;
+}
+
+.head-clr-grey {
+    text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+    20px 8px 13px rgba(0,0,0,0.1),
+    30px 18px 23px rgba(0,0,0,0.1);
+    color: #454545;
+}
+
+.rounded {
+    position: relative;
+    margin: 20px 0;
+    border-radius: 50% / 10%!important;
+    text-indent: .1em;
+}
+.rounded:before {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: -5%;
+    left: -5%;
+    border-radius: 5% / 50%;
+}
+
+.bg-dark {
+    background-color: rgba(34, 34, 34, 0.82) !important;
+}
+.bg-dark-nav {
+    background-color: rgb(57, 57, 57) !important;
+}
+
+.card {
+    background-color: rgba(38, 38, 38, 0.82) !important;
+}
+
+input {
+    padding:5px;
+    border:0;
+    border-radius:10px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    border-radius: 30px;
+    background-image: linear-gradient(100deg, #83ffe2 0%, #ffffff 50%, #acacac 100%);
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    text-decoration: none;
+    display: inline-block;
+    transition: .5s;
+    border: none;
+}
+
+.pressed-button, .btn-primary {
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 30px;
+    background-image: linear-gradient(45deg, #62ffdb 0%, #ffffff 50%, #acacac 100%);
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    font-size: 24px;
+    font-weight: 300;
+    color: #282828;
+    box-shadow: 0 16px 32px 0 rgb(41, 41, 41);
+    transition: .5s;
+    border: none;
+}
+.pressed-button:hover, .btn-primary:hover {
+    box-shadow: 0 0 0 0 rgb(146, 221, 199);
+    background-position: 0 0;
+    color: #292929;
+}
+
+.card {
+    border-radius: 18px;
+    box-shadow: 0 16px 16px 0 rgb(41, 41, 41)!important;
+}
+
+.img-rounded {
+    border-radius: 18px 18px 0 0;
+}
